@@ -152,12 +152,66 @@ function finishIntro() {
 // ----------------------------------------
 // BUTTONS
 // ----------------------------------------
+// ----------------------------------------
+// CHARACTER SELECTION
+// ----------------------------------------
 
-document.getElementById("start-button").addEventListener("click", () => {
+const characterSelection = document.createElement("div");
+
+characterSelection.id = "character-selection";
+
+characterSelection.innerHTML = `
+    <div class="character-content">
+
+        <h2>PILI OG KARAKTER</h2>
+
+        <p class="character-info">
+            Pilia ang imong karakter para magsugod.
+        </p>
+
+        <div class="character-preview">
+            <div class="character-placeholder">
+                KARAKTER
+            </div>
+        </div>
+
+        <button id="back-to-menu">
+            BALIK
+        </button>
+
+    </div>
+`;
+
+gameContainer.appendChild(characterSelection);
+
+
+// ----------------------------------------
+// OPEN CHARACTER SELECTION
+// ----------------------------------------
+
+function openCharacterSelection() {
 
     mainMenu.classList.remove("visible");
 
-    console.log("Character Selection opened.");
+    characterSelection.classList.add("visible");
+
+}
+
+
+// ----------------------------------------
+// BACK TO MAIN MENU
+// ----------------------------------------
+
+document.getElementById("back-to-menu").addEventListener("click", () => {
+
+    characterSelection.classList.remove("visible");
+
+    mainMenu.classList.add("visible");
+
+});
+document.getElementById("start-button").addEventListener("click", () => {
+
+    openCharacterSelection();
 
 });
 
