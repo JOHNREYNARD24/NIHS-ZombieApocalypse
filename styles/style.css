@@ -354,3 +354,110 @@ body {
     background: #292929;
     border-color: white;
 }
+/* =========================
+   GRADE SELECTION
+========================= */
+
+#grade-selection {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #252525 0%,
+            #090909 65%,
+            #000 100%
+        );
+
+    color: white;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 0.5s ease-in-out;
+
+    z-index: 7;
+}
+
+#grade-selection.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.grade-content {
+    width: min(92%, 500px);
+    text-align: center;
+}
+
+.grade-content h2 {
+    font-size: clamp(28px, 8vw, 48px);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.grade-content p {
+    color: #bbb;
+    margin-bottom: 25px;
+}
+
+.grade-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.grade-buttons button,
+#back-to-character {
+    min-height: 55px;
+
+    border: 2px solid #666;
+    border-radius: 10px;
+
+    background: #151515;
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.grade-buttons button:hover,
+#back-to-character:hover {
+    background: #292929;
+    border-color: white;
+}
+
+.grade-buttons button:active,
+#back-to-character:active {
+    transform: scale(0.95);
+}
+
+#back-to-character {
+    padding: 12px 35px;
+}
+
+@media (max-width: 450px) {
+
+    .grade-buttons {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .grade-buttons button {
+        min-height: 50px;
+    }
+}
