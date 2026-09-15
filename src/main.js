@@ -155,7 +155,9 @@ function finishIntro() {
 
 document.getElementById("start-button").addEventListener("click", () => {
 
-    console.log("SUGDI clicked.");
+    mainMenu.classList.remove("visible");
+
+    console.log("Character Selection opened.");
 
 });
 
