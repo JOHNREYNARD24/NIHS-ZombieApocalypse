@@ -155,7 +155,87 @@ function finishIntro() {
 // ----------------------------------------
 // CHARACTER SELECTION
 // ----------------------------------------
+// ----------------------------------------
+// GRADE SELECTION
+// ----------------------------------------
 
+const gradeSelection = document.createElement("div");
+
+gradeSelection.id = "grade-selection";
+
+gradeSelection.innerHTML = `
+    <div class="grade-content">
+
+        <h2>PILI OG GRADE</h2>
+
+        <p>Pilia ang grade sa imong karakter.</p>
+
+        <div class="grade-buttons">
+
+            <button data-grade="7">GRADE 7</button>
+            <button data-grade="8">GRADE 8</button>
+            <button data-grade="9">GRADE 9</button>
+            <button data-grade="10">GRADE 10</button>
+            <button data-grade="11">GRADE 11</button>
+            <button data-grade="12">GRADE 12</button>
+
+        </div>
+
+        <button id="back-to-character">
+            BALIK
+        </button>
+
+    </div>
+`;
+
+gameContainer.appendChild(gradeSelection);
+
+
+// ----------------------------------------
+// OPEN GRADE SELECTION
+// ----------------------------------------
+
+function openGradeSelection() {
+
+    characterSelection.classList.remove("visible");
+
+    gradeSelection.classList.add("visible");
+
+}
+
+
+// ----------------------------------------
+// GRADE BUTTONS
+// ----------------------------------------
+
+gradeSelection
+    .querySelectorAll("[data-grade]")
+    .forEach((button) => {
+
+        button.addEventListener("click", () => {
+
+            const grade = button.dataset.grade;
+
+            console.log(`Grade ${grade} selected.`);
+
+        });
+
+    });
+
+
+// ----------------------------------------
+// BACK
+// ----------------------------------------
+
+document
+    .getElementById("back-to-character")
+    .addEventListener("click", () => {
+
+        gradeSelection.classList.remove("visible");
+
+        characterSelection.classList.add("visible");
+
+    });
 const characterSelection = document.createElement("div");
 
 characterSelection.id = "character-selection";
