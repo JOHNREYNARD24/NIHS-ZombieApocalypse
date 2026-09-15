@@ -1,6 +1,6 @@
 // ========================================
 // NIHS ZOMBIE APOCALYPSE
-// STEP 3 - INTRO SYSTEM
+// STEP 4.1 - MAIN MENU
 // ========================================
 
 const game = {
@@ -8,6 +8,13 @@ const game = {
     currentRoom: 1,
     running: false
 };
+
+
+// ----------------------------------------
+// GAME CONTAINER
+// ----------------------------------------
+
+const gameContainer = document.getElementById("game");
 
 
 // ----------------------------------------
@@ -22,26 +29,20 @@ const introImages = [
 
 let currentIntro = 0;
 
-const gameContainer = document.getElementById("game");
-
-
-// Create intro screen
 const introScreen = document.createElement("div");
 introScreen.id = "intro-screen";
 
 gameContainer.appendChild(introScreen);
 
 
-// Create the three images
+// Create intro images
 const imageElements = introImages.map((src, index) => {
 
     const image = document.createElement("img");
 
     image.src = src;
     image.className = "intro-image";
-
     image.id = `intro-image-${index + 1}`;
-
     image.alt = `NIHS Intro ${index + 1}`;
 
     introScreen.appendChild(image);
@@ -50,14 +51,35 @@ const imageElements = introImages.map((src, index) => {
 });
 
 
-// Create main menu
+// ----------------------------------------
+// MAIN MENU
+// ----------------------------------------
+
 const mainMenu = document.createElement("div");
 
 mainMenu.id = "main-menu";
 
 mainMenu.innerHTML = `
-    <div class="menu-title">
-        NIHS ZOMBIE APOCALYPSE
+    <div class="menu-content">
+
+        <h1>NIHS ZOMBIE APOCALYPSE</h1>
+
+        <div class="menu-buttons">
+
+            <button id="start-button">
+                SUGDI
+            </button>
+
+            <button id="shop-button">
+                TINDAHAN
+            </button>
+
+            <button id="settings-button">
+                SETTINGS
+            </button>
+
+        </div>
+
     </div>
 `;
 
@@ -65,7 +87,7 @@ gameContainer.appendChild(mainMenu);
 
 
 // ----------------------------------------
-// SHOW INTRO IMAGE
+// INTRO IMAGE
 // ----------------------------------------
 
 function showIntroImage(index) {
@@ -89,29 +111,17 @@ function startIntro() {
     showIntroImage(currentIntro);
 
     setTimeout(() => {
-
         currentIntro = 1;
-
         showIntroImage(currentIntro);
-
     }, 2000);
 
-
     setTimeout(() => {
-
         currentIntro = 2;
-
         showIntroImage(currentIntro);
-
     }, 4000);
 
-
-    // Pagkatapos ng 3rd image,
-    // papunta sa main menu.
     setTimeout(() => {
-
         finishIntro();
-
     }, 8000);
 }
 
@@ -133,14 +143,39 @@ function finishIntro() {
 
         game.running = true;
 
-        console.log("Intro finished.");
+        console.log("Main menu ready.");
 
     }, 1000);
 }
 
 
 // ----------------------------------------
-// START GAME
+// BUTTONS
+// ----------------------------------------
+
+document.getElementById("start-button").addEventListener("click", () => {
+
+    console.log("SUGDI clicked.");
+
+});
+
+
+document.getElementById("shop-button").addEventListener("click", () => {
+
+    console.log("TINDAHAN clicked.");
+
+});
+
+
+document.getElementById("settings-button").addEventListener("click", () => {
+
+    console.log("SETTINGS clicked.");
+
+});
+
+
+// ----------------------------------------
+// START
 // ----------------------------------------
 
 window.addEventListener("load", () => {
