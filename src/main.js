@@ -207,7 +207,18 @@ function openGradeSelection() {
 // ----------------------------------------
 // GRADE BUTTONS
 // ----------------------------------------
+// ----------------------------------------
+// CHARACTER DATA
+// ----------------------------------------
 
+const charactersByGrade = {
+
+    7: {
+        boys: ["Steve", "Cyber", "C"],
+        girls: ["A", "J", "T"]
+    }
+
+};
 gradeSelection
     .querySelectorAll("[data-grade]")
     .forEach((button) => {
@@ -216,7 +227,7 @@ gradeSelection
 
             const grade = button.dataset.grade;
 
-            console.log(`Grade ${grade} selected.`);
+            openCharacterList(grade);
 
         });
 
@@ -271,7 +282,98 @@ characterSelection.innerHTML = `
 `;
 
 gameContainer.appendChild(characterSelection);
+// ----------------------------------------
+// CHARACTER LIST
+// ----------------------------------------
 
+const characterList = document.createElement("div");
+
+characterList.id = "character-list";
+
+characterList.innerHTML = `
+    <div class="character-list-content">
+
+        <h2 id="selected-grade-title">GRADE 7</h2>
+
+        <p>Pilia ang imong karakter.</p>
+
+        <div id="character-cards"></div>
+
+        <button id="back-to-grades">
+            BALIK
+        </button>
+
+    </div>
+`;
+
+gameContainer.appendChild(characterList);
+
+
+// ----------------------------------------
+// OPEN CHARACTER LIST
+// ----------------------------------------
+
+function openCharacterList(grade) {
+
+    gradeSelection.classList.remove("visible");
+
+    const data = charactersByGrade[grade];
+
+    const cards = document.getElementById("character-cards");
+
+    cards.innerHTML = "";
+
+    data.boys.forEach((name) => {
+
+        const card = document.createElement("button");
+
+        card.className = "character-card boy";
+
+        card.innerHTML = `
+            <div class="character-icon">👦</div>
+            <strong>${name}</strong>
+            <small>BOY</small>
+        `;
+
+        cards.appendChild(card);
+
+    });
+
+    data.girls.forEach((name) => {
+
+        const card = document.createElement("button");
+
+        card.className = "character-card girl";
+
+        card.innerHTML = `
+            <div class="character-icon">👧</div>
+            <strong>${name}</strong>
+            <small>GIRL</small>
+        `;
+
+        cards.appendChild(card);
+
+    });
+
+    document.getElementById("selected-grade-title").textContent =
+        `GRADE ${grade}`;
+
+    characterList.classList.add("visible");
+
+}
+
+
+// ----------------------------------------
+// BACK TO GRADES
+// ----------------------------------------
+
+document.getElementById("back-to-grades").addEventListener("click", () => {
+
+    characterList.classList.remove("visible");
+
+    gradeSelection.classList.add("visible");
+
+});
 
 // ----------------------------------------
 // OPEN CHARACTER SELECTION
