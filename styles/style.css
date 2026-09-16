@@ -461,3 +461,99 @@ body {
         min-height: 50px;
     }
 }
+/* ========================================
+   CHARACTER LIST
+======================================== */
+
+#character-list {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+#character-list.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.character-list-content {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    color: white;
+}
+
+.character-list-content h2 {
+    font-size: clamp(28px, 6vw, 48px);
+    margin-bottom: 8px;
+}
+
+.character-list-content p {
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+#character-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px;
+    width: 100%;
+}
+
+.character-card {
+    min-height: 170px;
+    border: 2px solid #555;
+    border-radius: 14px;
+    background: #222;
+    color: white;
+    padding: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.character-card:active {
+    transform: scale(0.95);
+}
+
+.character-card.boy {
+    border-color: #4da6ff;
+}
+
+.character-card.girl {
+    border-color: #ff80bf;
+}
+
+.character-icon {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.character-card strong {
+    display: block;
+    font-size: 18px;
+}
+
+.character-card small {
+    display: block;
+    margin-top: 5px;
+    color: #aaa;
+}
+
+#back-to-grades {
+    margin-top: 25px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    background: #333;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
