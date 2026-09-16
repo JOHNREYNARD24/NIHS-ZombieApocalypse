@@ -255,9 +255,17 @@ characterSelection.innerHTML = `
             </div>
         </div>
 
-        <button id="back-to-menu">
-            BALIK
-        </button>
+        <div class="character-actions">
+
+    <button id="back-to-menu">
+        BALIK
+    </button>
+
+    <button id="continue-to-grade">
+        PADAYON
+    </button>
+
+</div>
 
     </div>
 `;
@@ -281,12 +289,18 @@ function openCharacterSelection() {
 // ----------------------------------------
 // BACK TO MAIN MENU
 // ----------------------------------------
-
 document.getElementById("back-to-menu").addEventListener("click", () => {
 
     characterSelection.classList.remove("visible");
 
     mainMenu.classList.add("visible");
+
+});
+
+
+document.getElementById("continue-to-grade").addEventListener("click", () => {
+
+    openGradeSelection();
 
 });
 document.getElementById("start-button").addEventListener("click", () => {
