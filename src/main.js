@@ -213,9 +213,53 @@ function openGradeSelection() {
 
 const charactersByGrade = {
 
+    const charactersByGrade = {
+
     7: {
         boys: ["Steve", "Cyber", "C"],
         girls: ["A", "J", "T"]
+    },
+
+    8: {
+        boys: ["BOSS H", "BOSS NY", "E", "D"],
+        girls: ["XYHH", "ASH", "JORLONG", "MITCH", "HYRIS"]
+    },
+
+    9: {
+        boys: ["R", "D", "EJ"],
+        girls: ["Y", "H", "V"]
+    },
+
+    10: {
+        boys: [
+            "JOHN",
+            "REYNARD",
+            "ARCHEL",
+            "CARL",
+            "RHEY",
+            "RHAMCES",
+            "CRISTIAN",
+            "JES",
+            "SHR",
+            "JUL",
+            "ARCH",
+            "KENT",
+            "RENCEY",
+            "ELM",
+            "REX",
+            "JC"
+        ],
+        girls: ["A", "S", "J", "M", "I", "D"]
+    },
+
+    11: {
+        boys: ["A", "C", "R"],
+        girls: ["D", "M", "J"]
+    },
+
+    12: {
+        boys: ["S", "AR", "T"],
+        girls: []
     }
 
 };
